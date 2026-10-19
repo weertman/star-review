@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Star behaviour review</title>
+<link rel="stylesheet" href="style.css?v=20261019T130351">
+</head>
+<body>
+<main class="app">
+  <header class="bar">
+    <span class="brand">Star behaviour review</span>
+    <span class="status" id="save-status" role="status" aria-live="polite"></span>
+    <span class="who" id="who"></span>
+  </header>
+
+  <section class="panel" id="screen-key">
+    <h1>Sign in with your key</h1>
+    <p class="muted">Your key was given to you by the lab. It looks like <span class="mono">kelp-otter-472</span>.</p>
+    <form id="key-form" class="key-form" autocomplete="off">
+      <input id="key-input" type="text" inputmode="text" autocapitalize="off" spellcheck="false" aria-label="Your key" placeholder="kelp-otter-472">
+      <button type="submit" class="primary" id="key-submit">Start</button>
+    </form>
+    <label class="remember"><input type="checkbox" id="key-remember" checked> Remember my key on this device</label>
+    <p class="error" id="key-error" role="alert"></p>
+  </section>
+
+  <section class="panel" id="screen-rounds" hidden>
+    <h1>Choose a round</h1>
+    <ul class="rounds" id="round-list"></ul>
+    <button type="button" class="link" id="sign-out">Sign out</button>
+  </section>
+
+  <section id="screen-review" hidden>
+    <div class="progress-row">
+      <span id="count">Clip 1 of 1</span>
+      <div class="track"><div class="fill" id="round-fill"></div></div>
+      <span class="muted" id="round-name"></span>
+    </div>
+    <div class="stage" id="stage">
+      <video id="video-a" muted playsinline preload="auto" disablepictureinpicture disableremoteplayback></video>
+      <video id="video-b" muted playsinline preload="auto" disablepictureinpicture disableremoteplayback></video>
+      <div class="stage-msg" id="stage-msg" hidden></div>
+    </div>
+    <div class="loop-row">
+      <div class="track"><div class="fill accent" id="loop-fill"></div></div>
+      <span id="loop-hint">Loading</span>
+    </div>
+    <div class="answers" id="labels">
+      <div class="question">
+        <span class="q-label">Before poking, the star was</span>
+        <div class="labels">
+          <button type="button" class="label" data-kind="state" data-value="quiescent"><kbd>Q</kbd>Quiescent</button>
+          <button type="button" class="label" data-kind="state" data-value="alert"><kbd>A</kbd>Alert</button>
+          <button type="button" class="label" data-kind="state" data-value="moving"><kbd>M</kbd>Moving</button>
+        </div>
+      </div>
+      <div class="question">
+        <span class="q-label">Was it eating?</span>
+        <div class="labels">
+          <button type="button" class="label" data-kind="eating" data-value="eating"><kbd>E</kbd>Eating</button>
+          <button type="button" class="label" data-kind="eating" data-value="not_eating"><kbd>N</kbd>Not eating</button>
+          <button type="button" class="label" data-kind="eating" data-value="cant_tell"><kbd>U</kbd>Can't tell</button>
+        </div>
+      </div>
+    </div>
+    <div class="nav-row">
+      <button type="button" id="back"><kbd>←</kbd>Back</button>
+      <button type="button" class="label minor" data-kind="cant_tell" data-value="cant_tell"><kbd>X</kbd>Can't tell / person in view</button>
+      <button type="button" id="forward">Next<kbd>→</kbd></button>
+    </div>
+    <p class="note" id="note" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="panel" id="screen-done" hidden>
+    <h1>Round finished</h1>
+    <p>Thank you. Every clip in this round has a label, and your answers are saved.</p>
+    <p class="muted" id="done-detail"></p>
+    <button type="button" id="done-rounds">Back to rounds</button>
+  </section>
+</main>
+<script src="core.js?v=20261019T130351"></script>
+<script src="app.js?v=20261019T130351"></script>
+</body>
+</html>

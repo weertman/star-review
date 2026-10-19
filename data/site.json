@@ -1,0 +1,13 @@
+{
+ "published_at": "2026-10-19T13:03:51.032-07:00",
+ "inbox_url": "https://script.google.com/macros/s/AKfycbwdtkBD9_KyertJLJX1fo8rwvolCbsbjsOXZjq0FPc52Cku4lUekRpKUDzqXqzJ8FfK3Q/exec",
+ "rounds": [
+  {
+   "id": "2026-10-15",
+   "label": "Round of 15 Oct",
+   "showings": 90,
+   "loops_required": 1,
+   "back_limit": 5
+  }
+ ]
+}
