@@ -1,0 +1,75 @@
+:root {
+  --bg: #f3f4f2; --panel: #ffffff; --ink: #1b2124; --muted: #5d676c; --line: #d6dbdc;
+  --accent: #1f6f78; --accent-ink: #ffffff; --accent-soft: #dcefef; --warn: #8a5a00; --error: #b3261e;
+  --stage: #0b0d0e;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111518; --panel: #1a2024; --ink: #e6ecee; --muted: #9aa6ab; --line: #2f383d;
+    --accent: #5fbcc4; --accent-ink: #0a1416; --accent-soft: #19363a; --warn: #f0c060; --error: #ff8a80;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.app { max-width: 1120px; margin: 0 auto; padding: 16px; display: grid; gap: 14px; }
+.bar { display: flex; align-items: center; gap: 16px; font-size: 14px; color: var(--muted); }
+.brand { font-weight: 600; color: var(--ink); margin-right: auto; }
+.status { font-variant-numeric: tabular-nums; }
+.status.warn { color: var(--warn); }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 28px; max-width: 560px; margin: 8vh auto 0; width: 100%; }
+h1 { font-size: 22px; margin: 0 0 8px; font-weight: 600; }
+.muted { color: var(--muted); }
+.mono { font-family: ui-monospace, Menlo, monospace; }
+.key-form { display: flex; gap: 8px; margin-top: 16px; }
+input[type=text] { flex: 1; min-width: 0; font: inherit; font-family: ui-monospace, Menlo, monospace; color: var(--ink); background: var(--bg);
+                   border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+button { font: inherit; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+         padding: 10px 16px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+button:hover { border-color: var(--accent); }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600; }
+button.link { border: 0; background: none; color: var(--muted); padding: 8px 0; text-decoration: underline; }
+.remember { display: flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 14px; color: var(--muted); }
+.error { color: var(--error); min-height: 1.5em; margin: 8px 0 0; }
+.rounds { list-style: none; padding: 0; margin: 16px 0; display: grid; gap: 8px; }
+.rounds button { width: 100%; justify-content: space-between; }
+kbd { font: 12px ui-monospace, Menlo, monospace; border: 1px solid currentColor; border-radius: 4px; padding: 0 5px; opacity: .7; }
+
+.progress-row, .loop-row { display: flex; align-items: center; gap: 12px; font-size: 14px; font-variant-numeric: tabular-nums; }
+.progress-row > span:first-child { min-width: 7.5em; }
+.loop-row > span { min-width: 15em; text-align: right; color: var(--muted); }
+.track { flex: 1; height: 5px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.fill { height: 100%; width: 0; background: var(--muted); }
+.fill.accent { background: var(--accent); }
+/* The clip takes the room left after the questions and buttons, so everything fits on one screen.
+   A fixed height (rather than a fixed shape) lets wide tank strips use the full width, and keeps
+   the buttons in the same place from clip to clip. */
+.stage { position: relative; background: var(--stage); border-radius: 10px; overflow: hidden; width: 100%;
+         height: max(220px, calc(100vh - 330px)); }
+.stage video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; }
+.stage video.on { opacity: 1; }
+.stage-msg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #cfd8db; font-size: 15px; }
+.answers { display: grid; gap: 12px; }
+@media (min-width: 860px) { .answers { grid-template-columns: 1fr 1fr; gap: 20px; } }
+.question { display: grid; gap: 6px; }
+.q-label { font-size: 14px; color: var(--muted); }
+.labels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.labels.two { grid-template-columns: repeat(2, 1fr); }
+.label { height: 52px; font-size: 17px; }
+.label.locked { opacity: .45; cursor: not-allowed; }
+.label[aria-pressed=true] { background: var(--accent-soft); border: 2px solid var(--accent); font-weight: 600; }
+.nav-row { display: flex; gap: 10px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.label.minor { height: 42px; font-size: 14px; }
+#back[disabled], #forward[disabled] { visibility: hidden; }
+.note { margin: 0; min-height: 1.5em; font-size: 14px; color: var(--muted); }
+.note.warn { color: var(--warn); }
+.shake { animation: shake .3s; }
+@keyframes shake { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+@media (prefers-reduced-motion: reduce) { .shake { animation: none; } }
+@media (max-width: 560px) {
+  .labels { grid-template-columns: 1fr; }
+  .loop-row > span { min-width: 0; }
+}
