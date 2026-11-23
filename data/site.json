@@ -1,0 +1,39 @@
+{
+ "published_at": "2026-11-23T11:51:32.234-08:00",
+ "inbox_url": "https://script.google.com/macros/s/AKfycbwdtkBD9_KyertJLJX1fo8rwvolCbsbjsOXZjq0FPc52Cku4lUekRpKUDzqXqzJ8FfK3Q/exec",
+ "rounds": [
+  {
+   "id": "2026-10-22",
+   "label": "Round of 22 Oct",
+   "showings": 56,
+   "loops_required": 1,
+   "back_limit": 5
+  },
+  {
+   "id": "2026-10-29",
+   "label": "Round of 29 Oct",
+   "showings": 76,
+   "loops_required": 1,
+   "back_limit": 5
+  },
+  {
+   "id": "2026-11-05",
+   "label": "Round of 5 Nov",
+   "showings": 76,
+   "loops_required": 1,
+   "back_limit": 5
+  },
+  {
+   "id": "2026-11-19",
+   "label": "Round of 19 Nov",
+   "showings": 40,
+   "loops_required": 1,
+   "back_limit": 5
+  }
+ ],
+ "questions": [
+  "state",
+  "eating"
+ ],
+ "title": ""
+}
